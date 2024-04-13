@@ -1,26 +1,27 @@
-// Callback function to execute when mutations are observed
-const callback = (mutations) => {
+remove_node = (node) => {
+    node.childNodes.forEach((node) => {
+        node.style.display = "none";
+    });
+}
+
+new MutationObserver((mutations) => {
     for (const mutation of mutations) {
         if (mutation.type === "childList") {
             for (let node of mutation.addedNodes) {
                 if (node.nodeName === "ARTICLE") {
                     let text = node.textContent.trim()
-                    if (text.contains("•Follow")) {
-                        node.style.display = "none";
+                    if (text.contains("Follow")) {
+                        remove_node(node);
                     }
                 }
             }
         }
     }
-};
-
-// Start observing the target node for configured mutations
-new MutationObserver(callback).observe(
+}).observe(
     document,
     {
         attributes: false,
         childList: true,
         subtree: true
-    });
-
-// observer.disconnect();
+    }
+);
