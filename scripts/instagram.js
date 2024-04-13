@@ -1,5 +1,4 @@
-// Callback function to execute when mutations are observed
-const callback = (mutations) => {
+new MutationObserver((mutations) => {
     for (const mutation of mutations) {
         if (mutation.type === "childList") {
             for (let node of mutation.addedNodes) {
@@ -12,15 +11,11 @@ const callback = (mutations) => {
             }
         }
     }
-};
-
-// Start observing the target node for configured mutations
-new MutationObserver(callback).observe(
+}).observe(
     document,
     {
         attributes: false,
         childList: true,
         subtree: true
-    });
-
-// observer.disconnect();
+    }
+);
