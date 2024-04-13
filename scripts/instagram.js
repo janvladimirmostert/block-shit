@@ -1,3 +1,9 @@
+remove_node = (node) => {
+    node.childNodes.forEach((node) => {
+        node.style.display = "none";
+    });
+}
+
 new MutationObserver((mutations) => {
     for (const mutation of mutations) {
         if (mutation.type === "childList") {
@@ -5,8 +11,7 @@ new MutationObserver((mutations) => {
                 if (node.nodeName === "ARTICLE") {
                     let text = node.textContent.trim()
                     if (text.contains("Follow")) {
-                        node.style.border = "1px solid red";
-                        node.style.display = "none";
+                        remove_node(node);
                     }
                 }
             }
