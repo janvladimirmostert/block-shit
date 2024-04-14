@@ -16,10 +16,11 @@ have written yourself.
 
 ## Installation
 
-Clone the repo onto your own computer.
+1. Clone the repo onto your own computer.
 
-Go to the extensions page via `brave://extensions/` or `chrome://extensions/`.
-Enable `developer mode` followed by `Load unpacked` to load the cloned repo as a plugin into you browser.
-Click the reload icon on the extensions page to reload the plugin when you've made changes.
+2. Go to the extensions page via `brave://extensions/` or `chrome://extensions/`.
+3. Enable `developer mode`
+4. Click `Load unpacked` to load the cloned repo as a plugin into you browser.
+5. Click the reload icon on the extensions page to reload the plugin when you've made changes.
 
 ![image](icons/installed.png)
