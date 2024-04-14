@@ -11,7 +11,7 @@
     "permissions": ["activeTab", "scripting"],
     "content_scripts": [
         {
-            "matches": ["https://facebook.com/*", "https://*.facebook.com/*"],
+            "matches": ["https://facebook.com/", "https://*.facebook.com/"],
             "match_about_blank": false,
             "js": ["scripts/facebook.js"],
             "run_at": "document_start",
