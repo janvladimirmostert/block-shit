@@ -1,7 +1,7 @@
 # Block Shit
 
 It is becoming increasingly difficult to get ad blockers to remove promoted content, 
-suggested posts and other shit from my news feed.
+suggested posts and other junk from my news feed.
 
 The junk to content ratio on some sites are about 1000:1 - to see 1 photo of a friend's cat, 
 I have to scroll through 1000 other posts containing things I don't want to see.
