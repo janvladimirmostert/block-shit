@@ -1,3 +1,5 @@
+
+
 inside_main = (node, count = 0) => {
     if (!node) {
         return 0
@@ -9,9 +11,13 @@ inside_main = (node, count = 0) => {
 }
 
 remove_node = (node) => {
-    node.childNodes.forEach((node) => {
-        node.style.display = "none";
-    });
+    try {
+        node.childNodes.forEach((node) => {
+            node.style.display = "none";
+        });
+    } catch (e) {
+        console.error(e);
+    }
 }
 
 new MutationObserver((mutations) => {
@@ -21,7 +27,7 @@ new MutationObserver((mutations) => {
                 if (node.nodeName === "DIV") {
                     let count = inside_main(node)
                     if (count === 9) {
-                        let text = node.textContent.trim()
+                        let text = node?.textContent?.trim() ?? ""
                         if (text.contains("here are groups you might like")) {
                             remove_node(node);
                         } else if (text.contains("Follow")) {
@@ -46,3 +52,4 @@ new MutationObserver((mutations) => {
         subtree: true
     }
 );
+
