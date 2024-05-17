@@ -8,7 +8,7 @@
         "default_popup": "index.html",
         "default_title": "Block Shit"
     },
-    "permissions": ["activeTab", "scripting"],
+    "permissions": [],
     "content_scripts": [
         {
             "matches": ["https://facebook.com/", "https://*.facebook.com/"],
