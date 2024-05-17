@@ -1,3 +1,17 @@
+counter = 0;
+
+show_counter = (counter) => {
+    console.log("show_counter");
+    console.log(chrome);
+    console.log(chrome?.action);
+    // chrome?.action?.setBadgeBackgroundColor({color: "green"});
+    chrome?.action?.setBadgeText({
+        tabId: undefined,
+        text: "1234"
+    });
+}
+show_counter(0);
+
 inside_main = (node, count = 0) => {
     if (!node) {
         return 0
@@ -12,6 +26,7 @@ remove_node = (node) => {
     node.childNodes.forEach((node) => {
         node.style.display = "none";
     });
+    show_counter(++counter);
 }
 
 new MutationObserver((mutations) => {
