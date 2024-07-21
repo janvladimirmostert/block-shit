@@ -38,6 +38,8 @@ new MutationObserver((mutations) => {
                             remove_node(node);
                         } else if (text.contains("Reels and short videos")) {
                             remove_node(node);
+                        } else if (text.contains("Sponsored")) {
+                            remove_node(node);
                         }
                     }
                 }

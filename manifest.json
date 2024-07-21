@@ -24,18 +24,6 @@
       ],
       "run_at": "document_start",
       "world": "MAIN"
-    },
-    {
-      "matches": [
-        "https://instagram.com/",
-        "https://*.instagram.com/"
-      ],
-      "match_about_blank": false,
-      "js": [
-        "scripts/instagram.js"
-      ],
-      "run_at": "document_start",
-      "world": "MAIN"
     }
   ],
   "icons": {
