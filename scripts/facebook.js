@@ -1,4 +1,41 @@
 
+const sht = [
+    "here are groups you might like",
+    "Follow",
+    "Suggested for you",
+    "Join",
+    "Reels and short videos",
+    "Sponsored",
+
+    "Temu"
+]
+
+new MutationObserver((mutations) => {
+    for (const mutation of mutations) {
+        if (mutation.type === "childList") {
+            for (let node of mutation.addedNodes) {
+                if (node.nodeName === "DIV") {
+                    let count = inside_main(node)
+                    if (count === 9) {
+                        let text = node?.textContent?.trim() ?? ""
+                        sht.forEach((s) => {
+                            if (text.contains(s)) {
+                                remove_node(node)
+                            }
+                        })
+                    }
+                }
+            }
+        }
+    }
+}).observe(
+    document,
+    {
+        attributes: false,
+        childList: true,
+        subtree: true
+    }
+);
 
 inside_main = (node, count = 0) => {
     if (!node) {
@@ -19,39 +56,3 @@ remove_node = (node) => {
         console.error(e);
     }
 }
-
-new MutationObserver((mutations) => {
-    for (const mutation of mutations) {
-        if (mutation.type === "childList") {
-            for (let node of mutation.addedNodes) {
-                if (node.nodeName === "DIV") {
-                    let count = inside_main(node)
-                    if (count === 9) {
-                        let text = node?.textContent?.trim() ?? ""
-                        if (text.contains("here are groups you might like")) {
-                            remove_node(node);
-                        } else if (text.contains("Follow")) {
-                            remove_node(node);
-                        } else if (text.contains("Suggested for you")) {
-                            remove_node(node);
-                        } else if (text.contains("Join")) {
-                            remove_node(node);
-                        } else if (text.contains("Reels and short videos")) {
-                            remove_node(node);
-                        } else if (text.contains("Sponsored")) {
-                            remove_node(node);
-                        }
-                    }
-                }
-            }
-        }
-    }
-}).observe(
-    document,
-    {
-        attributes: false,
-        childList: true,
-        subtree: true
-    }
-);
-
