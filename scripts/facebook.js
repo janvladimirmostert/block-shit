@@ -7,7 +7,7 @@ const sht = [
     "Reels and short videos",
     "Sponsored",
 
-    "Temu"
+    "Temu", "Shoptemu", "Disney+", "Alibaba"
 ]
 
 new MutationObserver((mutations) => {
