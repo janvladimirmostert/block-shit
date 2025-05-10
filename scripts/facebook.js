@@ -18,6 +18,7 @@ new MutationObserver((mutations) => {
                     let count = inside_main(node)
                     if (count === 9) {
                         let text = node?.textContent?.trim() ?? ""
+                        // console.log(text)
                         sht.forEach((s) => {
                             if (text.contains(s)) {
                                 remove_node(node)
@@ -47,11 +48,25 @@ inside_main = (node, count = 0) => {
     }
 }
 
+catify = (node) => {
+    try {
+        if (node.nodeName === "IMG" || node.nodeName === "VIDEO") {
+            node.style.opacity = "0.0001"
+            node.style.filter = "grayscale(100%)";
+            node.src = null;
+        }
+        node.childNodes.forEach((node) => {
+            catify(node)
+        })
+    } catch(e) {
+        console.error(e)
+    }
+}
+
 remove_node = (node) => {
     try {
-        node.childNodes.forEach((node) => {
-            node.style.display = "none";
-        });
+        node.style.outline = "1px solid red";
+        catify(node)
     } catch (e) {
         console.error(e);
     }
